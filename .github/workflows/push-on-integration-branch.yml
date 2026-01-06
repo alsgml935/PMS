@@ -34,6 +34,7 @@ jobs:
               run: | 
                   echo y | sfdx plugins:install sfdx-git-delta
                   sfdx plugins 
+                  sfdx plugins 
 
             # Checkout the source code
             - name: 'Checkout source code'
