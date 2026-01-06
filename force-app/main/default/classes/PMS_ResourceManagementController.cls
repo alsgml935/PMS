@@ -6,6 +6,7 @@
   Ver      Date            Author           Modification
   ===================================================================================
   1.0      2026-01-06      jh.jung           Created
+  1.1      2026-01-06      mh.kim            Test
 */
 public with sharing class PMS_ResourceManagementController {
     public class AllocationWrapper {
