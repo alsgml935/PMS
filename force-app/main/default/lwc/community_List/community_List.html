@@ -1,0 +1,76 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner></lightning-spinner>
+    </template>
+
+    <div>
+        <div class="layout slds-grid_align-spread">
+            <div class="timeline">
+                <div class="infoWin">
+                    <h3 class="date roboto">
+                        {today.day}
+                        <small>{today.dayOfWeek} {today.year}.{today.month}</small>
+                    </h3>
+                    <p>유지보수 신청 목록</p>
+
+                    <div class="btn-section">
+                        <!-- <div class="slds-m-top_xx-large"> -->
+                        <button class="apply-btn" onclick={goCaseList}>신청하러 가기</button>
+
+                        <div class="timeline-slider__nav slds-grid">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-container timeline-slider" data-id="timeLineSlider">
+                    <template if:true={isCaseLengNull}>
+                        <div class="empty-sec slds-grid slds-grid_vertical">
+                            <c-de-_-Public-_-Svg tag={icons.emptyIcon}></c-de-_-Public-_-Svg>
+                            <p>유지보수 신청 항목이 없습니다. 왼쪽의 버튼을 클릭하여 신청해주세요.</p>
+                        </div>
+                    </template>
+                    <template if:false={isCaseLengNull}>
+                        <ul class="swiper-wrapper schedule-list slds-grid">
+                            <template for:each={FRONT_Data.mtCase} for:item="item">
+                                <li class="swiper-slide category" key={item.caseId}>
+                                    <p class="schedule-description">{item.name}</p>
+
+                                    <ul class="schedule-info order">
+                                        <li>
+                                            <span>유지보수 <br/>계약</span>
+                                            <p class="slds-truncate">
+                                                <a href="javascript:void(0);" data-object="maintenance-contract" data-value={item.contractId} onclick={redirect}>
+                                                    {item.contractName}
+                                                </a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span>조치상태</span>
+                                            <p>{item.status}</p>
+                                        </li>
+                                        <li>
+                                            <span>본사제안 <br/>공수</span>
+                                            <p>{item.suggest}</p>
+                                        </li>
+                                        <li>
+                                            <span>최종결정 <br/>공수</span>
+                                            <p>{item.manday}</p>
+                                        </li>
+                                        <li>
+                                            <span>처리담당자</span>
+                                            <p>{item.assignTo}</p>
+                                        </li>
+                                    </ul>
+                                    <div class="list-bottom">
+                                        <a href="javascript:void(0);" class="detail-link" data-object="case" data-value={item.caseId} onclick={redirect}>상세보기</a>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

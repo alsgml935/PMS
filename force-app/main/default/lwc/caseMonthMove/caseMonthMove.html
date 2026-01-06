@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="운영지원(월) 이동">
+        
+        <!-- 월 선택 -->
+        <div>
+            <div class="month-row">
+                <template for:each={months} for:item="month">
+                    <div key={month.value} 
+                         class={month.cssClass}
+                         data-month={month.value}
+                         onclick={handleMonthClick}>
+                        {month.label}
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- 버튼 -->
+        <div slot="footer" class="button-area">
+            <div class="info-text">
+                <p>선택한 월이 현재 월보다 큰 경우: 동일 연도로 인식</p>
+                <p class="example">예) &lt;현재&gt; 2024년 4월 → &lt;선택&gt; 7월 ⇒ 2024년 7월 운영지원(월)로 이동</p>
+                <p>선택한 월이 현재 월보다 작은 경우: 다음 연도로 인식</p>
+                <p class="example">예) &lt;현재&gt; 2024년 4월 → &lt;선택&gt; 1월 ⇒ 2025년 1월 운영지원(월)로 이동</p>
+            </div>
+            <div class="buttons">
+                <lightning-button 
+                    label="취소" 
+                    onclick={handleCancel}>
+                </lightning-button>
+                <lightning-button 
+                    label="저장" 
+                    variant="brand"
+                    onclick={handleSave}
+                    disabled={isSaveDisabled}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- 로딩 -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="처리 중..." size="medium">
+            </lightning-spinner>
+        </template>
+
+    </lightning-card>
+</template>

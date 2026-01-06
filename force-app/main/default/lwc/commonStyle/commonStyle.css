@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "AppleNeo";
+    src: url('/resource/AppleFont/AppleSDGothicNeoL.ttf') format('TrueType');
+}
+
+@font-face {
+    font-family: "AppleNeoB";
+    src: url('/resource/AppleFont/AppleSDGothicNeoB.ttf') format('TrueType');
+}
+
+.swiper-pagination {
+    background-color: #cbc8c8;
+}
+
+.swiper-pagination-bullet {
+    width: 40px;
+    height: 3px;
+    border-radius: 0;
+    background-color: #cbc8c8;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #cbc8c8;
+    width: 80px;
+}

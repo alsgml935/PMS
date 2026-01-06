@@ -1,0 +1,295 @@
+/* @import 'c/commonStyle'; */
+
+.layout {
+    width: 100%;
+    height: 100%;
+    padding: 25px 5vh;
+    overflow: hidden;
+    background-color: #ededed;
+}
+
+.roboto {
+    font-family: "Roboto" !important;
+}
+
+.layout .timeline {
+    display: grid;
+    grid-template-columns: 270px auto;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgb(27 37 155 / 16%);
+    margin: auto;
+}
+
+.layout .timeline .infoWin {
+    padding-top: 30px;
+    padding-left: 60px;
+    flex: 1 1 auto;
+    display: flex;
+
+    flex-direction: column;
+    min-width: 196px;
+    max-width: 300px;
+}
+
+.layout .timeline .date {
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: normal;
+    line-height: 84px;
+}
+
+.layout .timeline .date > small {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 19px;
+    color: #959595;
+    display: block;
+    margin-top: -8px;
+}
+
+.layout .timeline .infoWin > p {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 27px;
+    margin-top: 19px;
+}
+
+.layout .timeline .infoWin .btn-section {
+    margin-top: auto;
+}
+
+.timeline-slider__nav {
+    margin-bottom: 25px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 165.25px;
+}
+
+.timeline-slider__nav > p {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: normal;
+    margin: 0 8px;
+    color: #555;
+}
+
+.timeline-slider__nav > button {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.timeline-slider__nav > button:disabled {
+    opacity: 0.25;
+    background-color: white !important;
+}
+
+.timeline-slider__nav > button:hover {
+    background-color: #f4f7ff;
+}
+
+.timeline-slider__nav > button + button {
+    margin-left: 8px;
+}
+
+.timeline-slider__nav > button.next {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.404' height='7.609' viewBox='0 0 9.404 7.609'%3E%3Cg id='arrow' transform='translate(-331 -461)'%3E%3Cpath id='패스_14177' data-name='패스 14177' d='M1096.974,537.85h-7.559a.6.6,0,0,1,0-1.2h7.559a.6.6,0,0,1,0,1.2Z' transform='translate(-757.854 -72.45)'/%3E%3Cpath id='패스_14178' data-name='패스 14178' d='M1095,541.055a.6.6,0,0,1-.424-1.025l2.78-2.78-2.78-2.78a.6.6,0,0,1,.848-.849l3.205,3.205a.6.6,0,0,1,0,.848l-3.205,3.205A.6.6,0,0,1,1095,541.055Z' transform='translate(-758.401 -72.446)'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.timeline-slider__nav > button.prev {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.405' height='7.609' viewBox='0 0 9.405 7.609'%3E%3Cg id='arrow' transform='translate(340.405 468.609) rotate(180)'%3E%3Cpath id='패스_14177' data-name='패스 14177' d='M1096.974,537.85h-7.559a.6.6,0,0,1,0-1.2h7.559a.6.6,0,0,1,0,1.2Z' transform='translate(-757.854 -72.45)'/%3E%3Cpath id='패스_14178' data-name='패스 14178' d='M1095,541.055a.6.6,0,0,1-.424-1.025l2.78-2.78-2.78-2.78a.6.6,0,0,1,.848-.849l3.205,3.205a.6.6,0,0,1,0,.848l-3.205,3.205A.6.6,0,0,1,1095,541.055Z' transform='translate(-758.401 -72.446)'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.timeline-slider {
+    width: 840px;
+    padding: 20px 0;
+}
+
+.empty-sec {
+    height: 418px;
+    text-align: center;
+    justify-content: center;
+}
+
+.empty-sec > p {
+    margin-top: 25px;
+    color: #616366;
+    font-size: 14px;
+}
+
+.apply-btn {
+    background-color: #fff;
+    color: #f39e58;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 10px 38px;
+    font-size: 16px;
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+.apply-btn:hover {
+    color: white;
+    background-color: #f39e58;
+}
+
+.schedule-list > li {
+    width: 260px;
+    height: 100%;
+    border-radius: 16px;
+    border: 2px solid;
+    padding: 30px 24px 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.schedule-list > li.category {
+    background-color: #f39e58;
+    border-color: #f39e58;
+}
+
+.schedule-list > li.category::before {
+    background-color: #567BC3;
+}
+
+.schedule-list > li.category .schedule-info > li > p > a svg path {
+    fill: #567BC3;
+}
+
+.schedule-list > li.category .schedule-info > li .lot-more {
+    color: #567BC3;
+}
+
+.schedule-list > li .schedule-title {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 15px;
+    margin-bottom: 4px;
+}
+
+.schedule-list > li .schedule-description {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.schedule-list > li .schedule-info {
+    margin-top: 18px;
+    padding: 10px 0px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.schedule-list > li .schedule-info > li {
+    display: flex;
+    height: 30px;
+    margin: 10px 0px;
+}
+
+.schedule-list > li .schedule-info > li > span {
+    width: 76px;
+    display: block;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 15px;
+    padding-right: 5px;
+    padding-top: 1px;
+    flex: 0 0 auto;
+    margin: auto 0;
+}
+
+.schedule-list > li .schedule-info > li > p {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 18px;
+    width: 120px;
+    margin: auto 0;
+}
+
+.schedule-list > li .schedule-info > li > a {
+    margin: auto 0;
+}
+
+.schedule-list > li .schedule-info > li > p.over-text{
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.schedule-list > li .schedule-info > li > p > a {
+    font-weight: normal;
+    text-decoration: underline;
+    letter-spacing: normal;
+    color: white;
+    margin-right: 6px;
+}
+
+.schedule-list > li .schedule-info > li > p.currency {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='12' height='12' viewBox='0 0 12 12'%3E%3Cdefs%3E%3CclipPath id='clip-path'%3E%3Cpath id='패스_14228' data-name='패스 14228' d='M1729.2-138.4h.3a.9.9,0,0,1,.9.9.3.3,0,0,1-.3.3.3.3,0,0,1-.3-.3.3.3,0,0,0-.3-.3h-3a.3.3,0,0,0-.3.3v.68a.3.3,0,0,0,.257.3l3.17.453a.9.9,0,0,1,.773.891v.68a.9.9,0,0,1-.9.9h-.3v.9a.3.3,0,0,1-.3.3.3.3,0,0,1-.3-.3v-.9h-1.2v.9a.3.3,0,0,1-.3.3.3.3,0,0,1-.3-.3v-.9h-.3a.9.9,0,0,1-.9-.9.3.3,0,0,1,.3-.3.3.3,0,0,1,.3.3.3.3,0,0,0,.3.3h3a.3.3,0,0,0,.3-.3v-.68a.3.3,0,0,0-.258-.3l-3.17-.453a.9.9,0,0,1-.773-.891v-.68a.9.9,0,0,1,.9-.9h.3v-.9a.3.3,0,0,1,.3-.3.3.3,0,0,1,.3.3v.9h1.2v-.9a.3.3,0,0,1,.3-.3.3.3,0,0,1,.3.3ZM1728-130a6,6,0,0,1-6-6,6,6,0,0,1,6-6,6,6,0,0,1,6,6A6,6,0,0,1,1728-130Zm0-.6a5.4,5.4,0,0,0,5.4-5.4,5.4,5.4,0,0,0-5.4-5.4,5.4,5.4,0,0,0-5.4,5.4A5.4,5.4,0,0,0,1728-130.6Z' fill='%23fff'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg id='그룹_14492' data-name='그룹 14492' transform='translate(-1722 142)' clip-path='url(%23clip-path)'%3E%3Cpath id='패스_14227' data-name='패스 14227' d='M1721-143h13.2v13.2H1721Z' transform='translate(0.4 0.4)' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 17px;
+}
+
+.schedule-list > li .list-bottom {
+    margin-top: auto;
+}
+
+.schedule-list > li .list-bottom .detail-link {
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    color: #f5ac70;
+    border-radius: 300rem;
+    height: 48px;
+    border-width: 2px;
+    border-style: solid;
+    font-size: 13px;
+    letter-spacing: -0.02em;
+}
+
+
+@media (min-width : 1650px) {
+    .layout .timeline {
+        width: 1540px;
+    }
+
+    .timeline-slider {
+        width: 1100px;
+    }
+}
+
+/* @media (max-width : 1280px) {
+    .layout .timeline {
+        grid-template-columns: 21vh 68.5vh;
+
+    }
+} */

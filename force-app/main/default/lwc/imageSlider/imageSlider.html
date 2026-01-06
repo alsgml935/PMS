@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-size_3-of-4">
+        <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small" >
+            <lightning-carousel disable-auto-scroll>
+                <lightning-carousel-image
+                        src = {image1}
+                        width="10px" 
+                        height="10px"
+                        header = "DashBoard"
+                        description = "이미지를 클릭하면 DashBoard 페이지로 이동합니다."
+                        alternative-text = "First card accessible description."
+                        href = "/lightning/r/Dashboard/01Z5h000000e23HEAQ/view?queryScope=userFolders">
+                </lightning-carousel-image>
+                <lightning-carousel-image
+                        src = "https://www.lightningdesignsystem.com/assets/images/carousel/carousel-01.jpg"
+                        header = "유지보수 신청 목록"
+                        description = "이미지를 클릭하면 유지보수 신청 목록 페이지로 이동합니다."
+                        alternative-text = "Second card accessible description."
+                        href = "https://www.naver.com">
+                </lightning-carousel-image>
+            </lightning-carousel>
+        </div>
+    </div>
+</template>
