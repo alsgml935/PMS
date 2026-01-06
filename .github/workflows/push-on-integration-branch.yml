@@ -24,6 +24,11 @@ jobs:
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
 
+            - name: Use Node.js 20
+              uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+
             # install SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
             - name: 'Installing sfdx git delta'
               run: | 
