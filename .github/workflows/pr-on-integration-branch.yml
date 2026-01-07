@@ -20,10 +20,6 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
-            # Install nodejs
-            - uses: actions/setup-node@v2
-              with:
-                node-version: '14'
 
             # Checkout the source code
             - name: 'Checkout source code'
@@ -82,7 +78,7 @@ jobs:
 
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
-              run: sfdx plugins:install @salesforce/sfdx-scanner
+              run: sf plugins install @salesforce/sfdx-scanner
 
             # Get the Integration Org SFDX URL and store it in a text file
             - name: 'Populate auth file with SFDX_URL secret of integration org'
