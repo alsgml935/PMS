@@ -22,6 +22,17 @@ jobs:
                 node-version: '20'
 
             # Install Salesforce CLI (sf)
+            - name: Install Salesforce CLI (sfdx)
+              run: |
+                npm install -g sfdx-cli
+                sfdx version
+
+            - name: Install sfdx git delta
+              run: |
+                sfdx plugins:install sfdx-git-delta
+
+
+            # Install Salesforce CLI (sf)
             - name: Install Salesforce CLI
               run: |
                 npm install -g @salesforce/cli
