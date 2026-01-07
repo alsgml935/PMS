@@ -30,7 +30,7 @@ jobs:
             - name: Install sfdx git delta
               run: |
                 sfdx plugins:install sfdx-git-delta
-                
+
             # Install Salesforce CLI (sf)
             - name: Install Salesforce CLI
               run: |
@@ -58,7 +58,12 @@ jobs:
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: |
                   mkdir changed-sources
-                  sf sgd source delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
+                  sfdx sgd:source:delta \
+                    --to "HEAD" \
+                    --from "HEAD^" \
+                    --output changed-sources \
+                    --generate-delta \
+                    --source force-app
 
             # Authenticate to org
             - name: 'Authenticate to Production Org'
