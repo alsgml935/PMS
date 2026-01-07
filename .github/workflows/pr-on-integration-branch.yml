@@ -20,6 +20,10 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
+            # Install nodejs
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '20'
 
             # Checkout the source code
             - name: 'Checkout source code'
@@ -54,23 +58,20 @@ jobs:
                   TESTS=$(cat testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
                   
-            # Use Node.js 20
-            - name: Use Node.js 20
-              uses: actions/setup-node@v4
-              with:
-                node-version: '20'
-
-            # Install Salesforce CLI (sf)
-            - name: Install Salesforce CLI
+            # Install Salesforce CLI
+            - name: 'Install Salesforce CLI'
               run: |
-                npm install -g @salesforce/cli
-                sf version
+                  wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+                  mkdir ~/sfdx
+                  tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+                  echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+                  ~/sfdx/bin/sfdx version
 
-            # Install sfdx-git-delta plugin
-            - name: Installing sfdx git delta
-              run: |
-                sf plugins install sfdx-git-delta
-                sf plugins
+            # install SFDX-Git-Delta plugin - https://github.com/scolladon/sfdx-git-delta
+            - name: 'Installing sfdx git delta'
+              run: | 
+                  echo y | sfdx plugins:install sfdx-git-delta
+                  sfdx plugins 
 
             # Install java
             - name: 'Installing java'
@@ -78,7 +79,7 @@ jobs:
 
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
-              run: sf plugins install @salesforce/sfdx-scanner
+              run: sfdx plugins:install @salesforce/sfdx-scanner
 
             # Get the Integration Org SFDX URL and store it in a text file
             - name: 'Populate auth file with SFDX_URL secret of integration org'
@@ -93,10 +94,9 @@ jobs:
             # We use SFDX Git Delta to create a directory with only the metadata that has changed, this allows us
             # to deploy only those changes, as opposed to deploying the entire branch. This helps reducing deployment times
             - name: 'Create delta packages for new, modified or deleted metadata'
-              run: |
+              run: | 
                   mkdir changed-sources
                   sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
-
 
             # Scan the code in the delta directory by using sfdx scanner. Output the results of the scan in a new file
             # called apexScanResults.sarif
