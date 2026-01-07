@@ -53,28 +53,19 @@ jobs:
                   node ./parsePR.js              
                   TESTS=$(cat testsToRun.txt)       
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
-                  
+                
+
             # Use Node.js 20
             - name: Use Node.js 20
               uses: actions/setup-node@v4
               with:
                 node-version: '20'
-
+                
             # Install Salesforce CLI (sf)
             - name: Install Salesforce CLI
               run: |
                 npm install -g @salesforce/cli
                 sf version
-
-            # Install Salesforce CLI (sf)
-            - name: Install Salesforce CLI (sfdx)
-              run: |
-                npm install -g sfdx-cli
-                sfdx version
-
-            - name: Install sfdx git delta
-              run: |
-                sfdx plugins:install sfdx-git-delta
 
             # Install sfdx-git-delta plugin
             - name: Installing sfdx git delta
@@ -105,9 +96,9 @@ jobs:
             - name: 'Create delta packages for new, modified or deleted metadata'
               run: |
                   mkdir changed-sources
-                  sfdx sgd:source:delta \
-                    --to "HEAD" \
+                  sgd source delta \
                     --from "HEAD^" \
+                    --to "HEAD" \
                     --output changed-sources \
                     --generate-delta \
                     --source force-app
