@@ -20,18 +20,19 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '20'
-
+                
             # Install Salesforce CLI (sf)
             - name: Install Salesforce CLI
               run: |
                 npm install -g @salesforce/cli
                 sf version
+                sfdx version
 
             # Install sfdx-git-delta plugin
             - name: Installing sfdx git delta
               run: |
-                sf plugins install sfdx-git-delta
-                sf plugins 
+                sfdx plugins:install sfdx-git-delta
+                sfdx plugins
 
             # Checkout the source code
             - name: 'Checkout source code'

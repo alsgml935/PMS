@@ -66,12 +66,13 @@ jobs:
               run: |
                 npm install -g @salesforce/cli
                 sf version
+                sfdx version
 
             # Install sfdx-git-delta plugin
             - name: Installing sfdx git delta
               run: |
-                sf plugins install sfdx-git-delta
-                sf plugins
+                sfdx plugins:install sfdx-git-delta
+                sfdx plugins
 
             # Install java
             - name: 'Installing java'
