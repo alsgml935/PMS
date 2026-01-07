@@ -71,7 +71,7 @@ jobs:
             # Install sfdx-git-delta plugin
             - name: Installing sfdx git delta
               run: |
-                sfdx plugins:install sfdx-git-delta --yes
+                sfdx plugins:install sfdx-git-delta -y
                 sfdx plugins
 
             # Install java
