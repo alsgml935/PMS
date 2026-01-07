@@ -47,9 +47,14 @@ jobs:
                   echo ${{ secrets.SFDX_STAGING_URL}} > ./SFDX_STAGING_URL.txt
 
             - name: 'Create delta packages for new, modified or deleted metadata'
-              run: | 
-                  mkdir changed-sources
-                  sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
+              run: |
+                  mkdir -p changed-sources
+                  sf sgd source delta \
+                    --to HEAD \
+                    --from HEAD^ \
+                    --output changed-sources \
+                    --generate-delta \
+                    --source force-app
 
             # Authenticate to org
             - name: 'Authenticate to Integration Org'

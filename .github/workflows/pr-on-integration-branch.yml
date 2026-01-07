@@ -97,9 +97,14 @@ jobs:
             # We use SFDX Git Delta to create a directory with only the metadata that has changed, this allows us
             # to deploy only those changes, as opposed to deploying the entire branch. This helps reducing deployment times
             - name: 'Create delta packages for new, modified or deleted metadata'
-              run: | 
-                  mkdir changed-sources
-                  sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
+              run: |
+                  mkdir -p changed-sources
+                  sf sgd source delta \
+                    --to HEAD \
+                    --from HEAD^ \
+                    --output changed-sources \
+                    --generate-delta \
+                    --source force-app
 
             # Scan the code in the delta directory by using sfdx scanner. Output the results of the scan in a new file
             # called apexScanResults.sarif
