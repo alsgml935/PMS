@@ -14,6 +14,7 @@ on:
         - 'force-app/**'
             
 permissions:
+  actions: read
   contents: read
   security-events: write
 
