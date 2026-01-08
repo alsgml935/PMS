@@ -99,6 +99,10 @@ jobs:
                   sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/
 
 
+            permissions:
+              contents: read
+              security-events: write
+
             # Scan the code in the delta directory by using sfdx scanner. Output the results of the scan in a new file
             # called apexScanResults.sarif
             - name: 'Scan code'
