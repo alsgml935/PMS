@@ -12,6 +12,7 @@ on:
       # when changing non-salesforce files (like this yml file).
       paths:
         - 'force-app/**'
+        
             
 permissions:
   actions: read
