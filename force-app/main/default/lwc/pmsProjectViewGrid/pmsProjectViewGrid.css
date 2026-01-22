@@ -80,3 +80,19 @@
     right: 2px;
     font-size: 1rem;
 }
+
+
+.row-deleted {
+    background-color: #fff1f1 !important;
+    opacity: 0.6;
+}
+
+/* 취소선 및 글자색 흐리게 */
+.name-strikethrough strong {
+    text-decoration: line-through;
+}
+
+/* 삭제 버튼 호버 시 빨간색 */
+.delete-btn:hover {
+    --slds-c-button-color-text: #ea001e;
+}
