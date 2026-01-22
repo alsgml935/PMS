@@ -54,6 +54,19 @@
     font-weight: 500;
 }
 
+/* 프로젝트 단위 라인 공통 스타일 */
+.project-name-label,
+.detail-val {
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+/* 마지막 프로젝트는 라인 제거 */
+.project-name-label:last-child,
+.detail-val:last-child {
+    border-bottom: none;
+}
+
 /* 히트맵 배경색 정의 */
 .status-none { background-color: transparent; }
 
